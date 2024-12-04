@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./assets/fundo-mario.jpg); /* Caminho da imagem */
+  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  background-position: center; /* Centraliza a imagem */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+  height: 100vh; /* Garante que ocupe toda a altura da tela */
+}
+
+.board {
+  width: 80%; /* largura*/
+  height: 500px; /* altura*/
+  border-bottom: 15px solid rgb(22, 144, 22); /* cria uma linha no chao */
+  margin: 30px auto; /* 30 para cima e para baixo lateral automatico*/
+  background: linear-gradient(#f1f1f5cb, #64bbf5); /* borde tela do jogo*/
+  position: relative; /*position relative permite que o elemento aceite as propriedades top, bottom, left e right, que alteram o seu posicionamento.*/
+  overflow: hidden; /*utilizada para tratar conteúdos que ultrapassam os limites de um elemento. */
+}
+.button {
+  width: 80%; /* largura*/
+  padding: 10px 0; /* dentro 10 para cima e para baixo as lateral 0 auto*/
+  margin: 0 auto; /* centraliza o elemento na contro*/
+  display: flex; /*Define o elemento como um container flexível (flex container*/
+  justify-content: center; /*Alinha os elementos filhos no eixo principal (horizontal, por padrão) do container*/
+}
+
+.restart {
+  width: 40%; /*largura*/
+  padding: 10px 0; /* dentro 10 para cima e para baixo as lateral 0 */
+  cursor: pointer; /* deixa maozinha mouse*/
+  border: none; /* tira a borda do botton*/
+  background-color: green; /* cor de fondo do bottom*/
+  font-size: 26px; /* tamanho da lentra dentro do elemento*/
+  border-radius: 10px; /* deixa o redondado */
+  color: white; /* cor da letra dentro do botton*/
+  transition: 800ms; /* ao passar o mouse ele almenta */
+}
+
+.clouds {
+  position: absolute; /* é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá.*/
+  width: 150px; /*largura*/
+  top: 100px; /*posiciona o elemento no topo da página*/
+  animation: clouds 10s infinite linear;
+  right: -150px; /*Definir a posição horizontal do elemento0 pixels do lado direito*/
+}
+
+.mario {
+  position: absolute; /* é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá.*/
+  bottom: 0; /* posiciona o elemento da página na área inferior da tela*/
+  width: 120px; /*largura (altura do mario)*/
+}
+
+.jump {
+  animation: mario 500ms ease-out;
+}
+
+.pipe {
+  position: absolute; /* é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá.*/
+  bottom: 0; /* posiciona o elemento da página na área inferior da tela*/
+  width: 80px; /*largura*/
+  height: 80px;
+  animation: pipe 1300ms infinite linear; /*nome se refere à animação que descreve as mudanças que ocorrerão em um elemento durante a animação*/
+}
+
+/* animações */
+/* faz o elemento se mover da posição inicial à direita do contêiner para fora dele (à esquerda ou além de 100%). */
+@keyframes clouds {
+  from {
+    right: -150px;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+/* animação do pipe */
+@keyframes pipe {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+/* animação do mario */
+@keyframes mario {
+  0% {
+    bottom: 0;
+  }
+
+  40% {
+    bottom: 120px;
+  }
+
+  50% {
+    bottom: 120px;
+  }
+
+  60% {
+    bottom: 120px;
+  }
+
+  100% {
+    bottom: 0;
+  }
+}
